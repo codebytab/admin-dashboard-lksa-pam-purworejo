@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - LKSA Muhammadiyah</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-gray-800 text-white flex-col h-screen fixed md:flex hidden">
+      <div class="px-6 py-4 text-xl font-bold border-b border-gray-700">
+        LKSA Muhammadiyah
+      </div>
+      <nav class="flex-1 px-4 py-6 space-y-4">
+        <a href="#" class="block hover:text-gray-300">Dashboard</a>
+        <a href="#" class="block hover:text-gray-300">Manage Children</a>
+        <a href="#" class="block hover:text-gray-300">Manage Caregivers</a>
+        <a href="#" class="block hover:text-gray-300">Manage Donors</a>
+        <a href="#" class="block hover:text-gray-300">Reports</a>
+        <a href="#" class="block hover:text-red-400 mt-6">Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 md:ml-64 p-6 flex flex-col">
+      <!-- Topbar -->
+      <header class="flex justify-between items-center bg-white p-4 rounded shadow mb-6">
+        <div class="flex items-center space-x-4">
+          <button id="sidebarToggle" class="md:hidden text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+        </div>
+        <div class="flex items-center">
+          <img class="h-10 w-10 rounded-full" src="Logo LKSA PAM Purworejo.jpeg" alt="Profile" />
+          <span class="ml-3 font-medium text-gray-700">Admin - Tabah</span>
+        </div>
+      </header>
+
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Card Template -->
+        <div class="bg-white rounded-lg shadow p-5">
+          <h2 class="text-lg font-semibold text-gray-700 flex items-center justify-between">
+            Total Children
+            <span class="flex space-x-2">
+              <button title="Add Children"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 4v16m8-8H4" />
+                </svg></button>
+              <button title="Edit Children"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15.232 5.232l3.536 3.536M9 13l6-6m2 2L7 17H4v-3l11-11z" />
+                </svg></button>
+              <button title="Delete Children"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12" />
+                </svg></button>
+            </span>
+          </h2>
+          <p class="text-3xl font-bold text-indigo-600">120</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-5">
+          <h2 class="text-lg font-semibold text-gray-700 flex items-center justify-between">
+            Total Caregivers
+            <span class="flex space-x-2">
+              <button title="Add Caregiver"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 4v16m8-8H4" />
+                </svg></button>
+              <button title="Edit Caregiver"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15.232 5.232l3.536 3.536M9 13l6-6m2 2L7 17H4v-3l11-11z" />
+                </svg></button>
+              <button title="Delete Caregiver"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12" />
+                </svg></button>
+            </span>
+          </h2>
+          <p class="text-3xl font-bold text-indigo-600">30</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-5">
+          <h2 class="text-lg font-semibold text-gray-700 flex items-center justify-between">
+            Total Donors
+            <span class="flex space-x-2">
+              <button title="Add Donor"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 4v16m8-8H4" />
+                </svg></button>
+              <button title="Edit Donor"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15.232 5.232l3.536 3.536M9 13l6-6m2 2L7 17H4v-3l11-11z" />
+                </svg></button>
+              <button title="Delete Donor"><svg class="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12" />
+                </svg></button>
+            </span>
+          </h2>
+          <p class="text-3xl font-bold text-indigo-600">80</p>
+        </div>
+      </div>
+
+      <!-- Activity Table -->
+      <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Recent Activities</h3>
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-4 py-2 text-left font-medium text-gray-600">Activity</th>
+              <th class="px-4 py-2 text-left font-medium text-gray-600">Date</th>
+              <th class="px-4 py-2 text-right font-medium text-gray-600">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="px-4 py-2 text-gray-800">New Child Admission</td>
+              <td class="px-4 py-2 text-gray-600">Jan 1, 2025</td>
+              <td class="px-4 py-2 text-right">
+                <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">Completed</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 text-gray-800">Donor Added</td>
+              <td class="px-4 py-2 text-gray-600">Jan 10, 2025</td>
+              <td class="px-4 py-2 text-right">
+                <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs">Pending</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Donation Trends</h3>
+        <canvas id="donationChart" height="300"></canvas>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center text-sm text-gray-500 mt-auto">
+        &copy; 2025 LKSA Panti Asuhan Muhammadiyah Purworejo. All rights reserved.
+      </footer>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Chart.js setup
+    const ctx = document.getElementById('donationChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Donations (in thousand IDR)',
+          data: [500, 800, 1200, 1500, 1000, 700],
+          backgroundColor: 'rgba(99, 102, 241, 0.6)',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // CRUD buttons alert
+    document.querySelectorAll('button[title]').forEach(button => {
+      button.addEventListener('click', () => {
+        alert(`${button.title} clicked!`);
+      });
+    });
+
+    // Toggle sidebar (mobile)
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
